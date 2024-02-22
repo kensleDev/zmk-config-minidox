@@ -28,10 +28,10 @@
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &kp Q      &kp W       &kp E        &kp R       &kp T       &kp Y    &kp U       &kp I       &kp O      &kp P
-    &mt LGUI A &mt LALT S  &mt LSHFT D  &mt LCTRL F &kp G       &kp H    &mt RCTRL J &mt RSHFT K &mt RALT L &mt SEMI RGUI
-    &kp Z      &kp X       &kp C        &kp V       &kp B       &kp N    &kp M       &kp COMMA   &kp DOT    &kp FSLH
-                           &lt SYM ESC  &lt NUM TAB &kp SPACE   &kp BSPC &mo NUM &lt SYM RET
+    &kp Q      &kp W       &kp E        &kp R       &kp T       &kp Y    &kp U         &kp I       &kp O      &kp P
+    &mt LGUI A &mt LALT S  &mt LSHFT D  &mt LCTRL F &kp G       &kp H    &mt RCTRL J   &mt RSHFT K &mt RALT L &mt SEMI RGUI
+    &kp Z      &kp X       &kp C        &kp V       &kp B       &kp N    &kp M         &kp COMMA   &kp DOT    &kp FSLH
+                           &lt SYM ESC  &lt NUM TAB &kp SPACE   &kp BSPC &mt NUM SPACE &lt SYM RET
                 >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
