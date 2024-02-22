@@ -70,7 +70,7 @@
  */
                         bindings = <
     &kp GRAVE  &kp AT    &kp HASH  &kp UNDER &kp BSLH   &sys_reset &kp HOME &kp PG_DN &kp PG_UP &kp END
-    &kp LBRC   &kp GRAVE &kp SQT   &kp DQT   &kp CARET  &kp DLLR   &kp LEFT &kp DOWN  &kp UP    &KP RIGHT
+    &kp LBRC   &kp GRAVE &kp SQT   &kp DQT   &kp CARET  &kp DLLR   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
     &kp PIPE   &kp LBKT  &kp LBRC  &kp LPAR  &kp AMPS   &kp TILDE2 &kp RPAR &kp RBRC  &kp RBKT  &kp NUBS
                          &trans    &trans    &trans     &trans     &trans   &trans
                 >;
