@@ -5,6 +5,7 @@
 #define QWERTY 0
 #define NUM 1
 #define SYM 2
+#define BLE 3
 
 &mt {
     tapping-term-ms = <300>;
@@ -20,18 +21,18 @@
  * ,----------------------------------.        ,----------------------------------.
  * |   Q  |   W  |   E  |   R  |   T  |        |   Y  |   U  |   I  |   O  |   P  |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |   A  |   S  |   D  |   F  |   G  |        |   H  |   J  |   K  |   L  |   ;  |
+ * | GUI_A|ALT_S |SHFT_D|CTRL_F| NUM_G|        | NUM_G|CTRL_J|SHFT_K|ALT_L | GUI_;|
  * |------+------+------+------+------|        |------+------+------+------+------|
  * |   Z  |   X  |   C  |   V  |   B  |        |   N  |   M  |   ,  |   .  |   /  |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               | REP  |NM_BKS| ESC  |        | Enter|SM_SPC| TAB  |
+ *               | REP  | BKS  | ESC  |        | Enter|SM_SPC| TAB  |
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &kp Q      &kp W       &kp E        &kp R        &kp T       &kp Y    &kp U         &kp I       &kp O      &kp P
-    &mt LGUI A &mt LALT S  &mt LSHFT D  &mt LCTRL F  &kp G       &kp H    &mt RCTRL J   &mt RSHFT K &mt RALT L &mt SEMI RGUI
-    &kp Z      &kp X       &kp C        &kp V        &kp B       &kp N    &kp M         &kp COMMA   &kp DOT    &kp FSLH
-                           &key_repeat  &lt NUM BSPC &kp ESC     &kp RET  &lt SYM SPACE &kp TAB
+    &kp Q      &kp W       &kp E        &kp R        &kp T       &kp Y     &kp U         &kp I       &kp O      &kp P
+    &mt LGUI A &mt LALT S  &mt LSHFT D  &mt LCTRL F  &lt NUM G   &lt NUM H &mt RCTRL J   &mt RSHFT K &mt RALT L &mt SEMI RGUI
+    &kp Z      &kp X       &kp C        &kp V        &kp B       &kp N     &kp M         &kp COMMA   &kp DOT    &kp FSLH
+                           &key_repeat  &kp BSPC     &kp ESC     &kp RET   &lt SYM SPACE &kp TAB
                 >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
@@ -76,5 +77,26 @@
                 >;
         };
         
+
+        sym_layer {
+
+/* Bluetooth
+ * ,----------------------------------.        ,----------------------------------.
+ * |      |      |      |      |      |        |      |      |      |      |      |
+ * |------+------+------+------+------|        |------+------+------+------+------|
+ * |      |      |      |      |      |        |      |      |      |      |      |
+ * |------+------+------+------+------|        |------+------+------+------+------|
+ * |      |      |      |      |      |        |      |      |      |      |      |
+ * `-------------+------+------+------|        |------+------+------+-------------'
+ *               |      |      |      |        |      |      |      |
+ *               `--------------------'        `--------------------'
+ */
+                        bindings = <
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans 
+                         &trans    &trans &trans &trans &trans &trans
+                >;
+        };
     };
 };
