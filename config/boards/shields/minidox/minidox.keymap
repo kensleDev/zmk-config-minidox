@@ -24,14 +24,14 @@
  * |------+------+------+------+------|        |------+------+------+------+------|
  * |   Z  |   X  |   C  |   V  |   B  |        |   N  |   M  |   ,  |   .  |   /  |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |F_SYM |F_NUM | Space|        | Bspc |F_ARR |F_MED |
+ *               | REP  |NM_BKS| ESC  |        | Enter|SM_SPC| TAB  |
  *               `--------------------'        `--------------------'
  */
                         bindings = <
     &kp Q      &kp W       &kp E        &kp R        &kp T       &kp Y    &kp U         &kp I       &kp O      &kp P
     &mt LGUI A &mt LALT S  &mt LSHFT D  &mt LCTRL F  &kp G       &kp H    &mt RCTRL J   &mt RSHFT K &mt RALT L &mt SEMI RGUI
     &kp Z      &kp X       &kp C        &kp V        &kp B       &kp N    &kp M         &kp COMMA   &kp DOT    &kp FSLH
-                           &kp K_PP     &lt NUM BSPC &kp ESC     &kp RET  &lt NUM SPACE &kp TAB
+                           &key_repeat  &lt NUM BSPC &kp ESC     &kp RET  &lt SYM SPACE &kp TAB
                 >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
@@ -39,20 +39,20 @@
 
 /* Numbers
  * ,----------------------------------.        ,----------------------------------.
- * |      |  F7  |  F8  |  F9  |  F10 |        |  F1  |  7   |  8   |  9   |  +   |
+ * |      |  F7  |  F8  |  F9  |  F10 |        |      |  7   |  8   |  9   |  +   |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |  F4  |  F5  |  F6  |  F11 |        |  F6  |  4   |  5   |  6   |  -   |
+ * |      |  F4  |  F5  |  F6  |  F11 |        |      |  4   |  5   |  6   |  -   |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |  F1  |  F2  |  F3  |  F12 |        |  F11 |  1   |  2   |  3   |  =   |
+ * |      |  F1  |  F2  |  F3  |  F12 |        |      |  1   |  2   |  3   |  *   |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
+ *               | PLAY |      | NEXT |        |      |   0  |  =   |
  *               `--------------------'        `--------------------'
 */
                         bindings = <
-    &trans &kp F7 &kp F8  &kp F9 &kp F10     &trans &kp N7 &kp N8  &kp N9 &kp PLUS
-    &trans &kp F4 &kp F5  &kp F6 &kp F11     &trans &kp N4 &kp N5  &kp N6 &kp MINUS
-    &trans &kp F1 &kp F2  &kp F3 &kp F12     &trans &kp N1 &kp N2  &kp N3 &kp EQUAL
-                  &kp DOT &trans &trans      &trans &kp N0 &trans
+    &trans &kp F7 &kp F8   &kp F9 &kp F10     &trans &kp N7 &kp N8    &kp N9 &kp PLUS
+    &trans &kp F4 &kp F5   &kp F6 &kp F11     &trans &kp N4 &kp N5    &kp N6 &kp MINUS
+    &trans &kp F1 &kp F2   &kp F3 &kp F12     &trans &kp N1 &kp N2    &kp N3 &kp KP_MULTIPLY
+                  &kp K_PP &trans &kp K_NEXT  &trans &kp N0 &kp EQUAL
                 >;
         };
         sym_layer {
@@ -65,14 +65,14 @@
  * |------+------+------+------+------|        |------+------+------+------+------|
  * |   |  |   [  |   {  |   (  |   &  |        |   ~  |  )   |  }   |  ]   |  \   |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
+ *               |      |  DEL |      |        |      |      |      |
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &kp GRAVE  &kp AT    &kp HASH  &kp UNDER &kp BSLH   &sys_reset &kp HOME &kp PG_DN &kp PG_UP &kp END
-    &kp LBRC   &kp GRAVE &kp SQT   &kp DQT   &kp CARET  &kp DLLR   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
-    &kp PIPE   &kp LBKT  &kp LBRC  &kp LPAR  &kp AMPS   &kp TILDE2 &kp RPAR &kp RBRC  &kp RBKT  &kp NUBS
-                         &trans    &trans    &trans     &trans     &trans   &trans
+    &kp GRAVE  &kp AT    &kp HASH  &kp UNDER    &kp PRCNT  &sys_reset &kp HOME &kp PG_DN &kp PG_UP &kp END
+    &kp LBRC   &kp GRAVE &kp SQT   &kp DQT      &kp CARET  &kp DLLR   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
+    &kp PIPE   &kp LBKT  &kp LBRC  &kp LPAR     &kp AMPS   &kp TILDE2 &kp RPAR &kp RBRC  &kp RBKT  &kp NUBS
+                         &trans    &kp C_AC_DEL &trans     &trans     &trans   &trans
                 >;
         };
         
