@@ -2,7 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define QWERTY 0
+#define MAIN 0
 #define NUM 1
 #define SYM 2
 #define BLE 3
@@ -17,7 +17,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-/* Qwerty
+/* Main
  * ,----------------------------------.        ,----------------------------------.
  * |   Q  |   W  |   E  |   R  |   T  |        |   Y  |   U  |   I  |   O  |   P  |
  * |------+------+------+------+------|        |------+------+------+------+------|
