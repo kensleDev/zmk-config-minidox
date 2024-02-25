@@ -5,9 +5,7 @@
 #define QWERTY 0
 #define NUM 1
 #define SYM 2
-#define ARROWS 3
-#define MEDIA 4
-#define NAV 5
+#define BLE 3
 
 &mt {
     tapping-term-ms = <300>;
@@ -23,65 +21,70 @@
  * ,----------------------------------.        ,----------------------------------.
  * |   Q  |   W  |   E  |   R  |   T  |        |   Y  |   U  |   I  |   O  |   P  |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |   A  |   S  |   D  |   F  |   G  |        |   H  |   J  |   K  |   L  |   ;  |
+ * | GUI_A|ALT_S |   D  |CTRL_F| NUM_G|        | NUM_G|CTRL_J|   K  |ALT_L | GUI_;|
  * |------+------+------+------+------|        |------+------+------+------+------|
  * |   Z  |   X  |   C  |   V  |   B  |        |   N  |   M  |   ,  |   .  |   /  |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |F_SYM |F_NUM | Space|        | Bspc |F_ARR |F_MED |
+ *               | REP  | BKS  |SF_ESC|        |SF_RET|SM_SPC| TAB  |
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y    &kp U      &kp I          &kp O         &kp P
-    &lt NAV A   &kp S       &kp D       &kp F       &kp G       &kp H    &kp J      &kp K          &kp L         &kp SEMI
-    &mt LSHFT Z &mt LCTRL X &mt LGUI C  &mt LALT V  &kp B       &kp N    &mt RALT M &mt RGUI COMMA &mt RCTRL DOT &mt RSHFT FSLH
-                            &lt SYM ESC &lt NUM TAB &kp SPACE   &kp BSPC &mo ARROWS &lt MEDIA RET
+    &kp Q      &kp W       &kp E        &kp R        &kp T          &kp Y          &kp U         &kp I     &kp O      &kp P
+    &mt LGUI A &mt LALT S  &kp D        &mt LCTRL F  &lt NUM G      &lt NUM H      &mt RCTRL J   &kp K     &mt RALT L &mt SEMI RGUI
+    &kp Z      &kp X       &kp C        &kp V        &kp B          &kp N          &kp M         &kp COMMA &kp DOT    &kp FSLH
+                           &key_repeat  &kp BSPC     &mt LSHFT ESC  &mt RSHFT RET  &lt SYM SPACE &kp TAB
                 >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
         num_layer {
+
 /* Numbers
  * ,----------------------------------.        ,----------------------------------.
- * |   0  |   7  |   8  |   9  |RESET |        |  F1  |  F2  |  F3  |  F4  |  F5  |
+ * |      |  F7  |  F8  |  F9  |  F10 |        |      |  7   |  8   |  9   |  +   |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |   4  |   5  |   6  |   =  |        |  F6  |  F7  |  F8  |  F9  |  F10 |
+ * |      |  F4  |  F5  |  F6  |  F11 |        |      |  4   |  5   |  6   |  -   |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |   1  |   2  |   3  |   -  |        |  F11 | AF12 |      |      |      |
+ * |      |  F1  |  F2  |  F3  |  F12 |        |      |  1   |  2   |  3   |  *   |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |   .  |      |      |        |      |      |      |
+ *               | PLAY |      | NEXT |        |      |   0  |  =   |
  *               `--------------------'        `--------------------'
 */
                         bindings = <
-    &kp N0 &kp N7 &kp N8  &kp N9 &reset      &kp F1  &kp F2       &kp F3 &kp F4 &kp F5
-    &trans &kp N4 &kp N5  &kp N6 &kp EQUAL   &kp F6  &kp F7       &kp F8 &kp F9 &kp F10
-    &trans &kp N1 &kp N2  &kp N3 &kp MINUS   &kp F11 &mt RALT F12 &trans &trans &trans
-                  &kp DOT &trans &trans      &trans  &trans &trans
+    &trans &kp F7 &kp F8   &kp F9 &kp F10     &trans &kp N7 &kp N8    &kp N9 &kp PLUS
+    &trans &kp F4 &kp F5   &kp F6 &kp F11     &trans &kp N4 &kp N5    &kp N6 &kp MINUS
+    &trans &kp F1 &kp F2   &kp F3 &kp F12     &trans &kp N1 &kp N2    &kp N3 &kp KP_MULTIPLY
+                  &kp K_PP &trans &kp K_NEXT  &trans &kp N0 &kp EQUAL
                 >;
         };
         sym_layer {
+
 /* Symbols
  * ,----------------------------------.        ,----------------------------------.
- * |   `  |      |   _  |   +  |   \  |        |      |      |      |      |      |
+ * |   !  |   @  | HASH |   _  |   %  |        | RESET| HOME | PGDN | PGUP | END  |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |   {  |   }  |   -  |   =  |      |        |      |      |      |      |      |
+ * |   ?  |   `  |   "  |   '  |   ^  |        |   $  | LEFT | DOWN |  UP  | RIGHT|
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |   [  |   ]  |   (  |   )  |      |        |      |      |      |      |      |
+ * |   |  |   [  |   {  |   (  |   &  |        |   ~  |  )   |  }   |  ]   |  \   |
  * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
+ *               |      |  DEL |      |        |      |      |      |
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &kp GRAVE  &trans   &kp UNDER &kp PLUS  &kp BSLH   &trans &trans &trans &trans &trans
-    &kp LBRC   &kp RBRC &kp MINUS &kp EQUAL &trans     &trans &trans &trans &trans &trans
-    &kp LBKT   &kp RBKT &kp LPAR  &kp RPAR  &trans     &trans &trans &trans &trans &trans
-                        &trans    &trans    &trans     &trans &trans &trans
+    &kp GRAVE  &kp AT    &kp HASH  &kp UNDER    &kp PRCNT  &sys_reset &kp HOME &kp PG_DN &kp PG_UP &kp END
+    &kp LBRC   &kp GRAVE &kp SQT   &kp DQT      &kp CARET  &kp DLLR   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
+    &kp PIPE   &kp LBKT  &kp LBRC  &kp LPAR     &kp AMPS   &kp TILDE2 &kp RPAR &kp RBRC  &kp RBKT  &kp NUBS
+                         &trans    &kp C_AC_DEL &trans     &trans     &trans   &trans
                 >;
         };
-        arrows_layer {
-/* Arrows
+        
+
+        ble_layer {
+
+/* Bluetooth
  * ,----------------------------------.        ,----------------------------------.
- * |      |      |      |      |      |        |      |      |  Up  |      |      |
+ * |      |      |      |      |      |        |      |      |      |      |      |
  * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |      | Left | Down | Right|   '  |
+ * |      |      |      |      |      |        |      |      |      |      |      |
  * |------+------+------+------+------|        |------+------+------+------+------|
  * |      |      |      |      |      |        |      |      |      |      |      |
  * `-------------+------+------+------|        |------+------+------+-------------'
@@ -89,50 +92,11 @@
  *               `--------------------'        `--------------------'
  */
                         bindings = <
-    &trans &trans &trans &trans &trans   &trans     &trans   &kp UP    &trans    &trans
-    &trans &trans &trans &trans &trans   &trans &kp LEFT &kp DOWN &kp RIGHT &kp APOS
-    &trans &trans &trans &trans &trans   &trans     &trans   &trans    &trans    &trans
-                  &trans &trans &trans   &trans     &trans   &trans
-                >;
-        };
-        media_layer {
-/* Media
- * ,----------------------------------.        ,----------------------------------.
- * |      |      |      |      |      |        |RESET |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |BT_CLR|      |PTrack| Vol+ |NTrack|
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      |      |      |      |        |      |      | Prev | Vol- | Next |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        | Play | Mute |      |
- *               `--------------------'        `--------------------'
- */
-                        bindings = <
-    &trans &trans &trans &trans &trans   &trans   &reset      &trans     &trans       &trans
-    &trans &trans &trans &trans &trans   &trans   &bt BT_CLR  &kp C_RW   &kp C_VOL_UP &kp C_FF
-    &trans &trans &trans &trans &trans   &trans   &trans      &kp C_PREV &kp C_VOL_DN &kp C_NEXT
-                  &trans &trans &trans   &kp C_PP &kp C_MUTE &trans
-                >;
-        };
-        nav_layer {
-/* Navigation
- * ,----------------------------------.        ,----------------------------------.
- * |BT_CLR| BOOT | PgUp | PgDn | Pscr |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      | Home |  End | Paus |        |      |      |      |      |      |
- * |------+------+------+------+------|        |------+------+------+------+------|
- * |      |      | Ins  |  Del | Slck |        |      |      |      |      |      |
- * `-------------+------+------+------|        |------+------+------+-------------'
- *               |      |      |      |        |      |      |      |
- *               `--------------------'        `--------------------'
- */
-                        bindings = <
-    &bt BT_CLR &bootloader &kp PG_UP &kp PG_DN &kp PSCRN         &trans &trans &trans &trans &trans
-    &trans     &trans      &kp HOME  &kp END   &kp PAUSE_BREAK   &trans &trans &trans &trans &trans
-    &trans     &trans      &kp INS   &kp DEL   &kp SLCK          &trans &trans &trans &trans &trans
-                           &trans    &trans    &trans            &trans &trans &trans
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans 
+                         &trans    &trans &trans &trans &trans &trans
                 >;
         };
     };
 };
-
